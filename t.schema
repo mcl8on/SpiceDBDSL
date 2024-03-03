@@ -1,0 +1,19 @@
+definition user {}
+/**
+ * resource is an example resource.
+ */
+
+ /* comment tw */
+definition resource {
+    relation writer: user
+
+    
+    relation viewer: user
+    relation invited: user
+    relation internal: user
+
+    permission write = (writer  & invited) + internal
+    permission view = viewer + writer
+    
+    
+}
